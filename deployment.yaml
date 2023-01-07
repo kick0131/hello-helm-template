@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "hello-helm.fullname" . }}
+  namespace: {{ .Values.mynamespace }}
   labels:
     {{- include "hello-helm.labels" . | nindent 4 }}
 spec:
