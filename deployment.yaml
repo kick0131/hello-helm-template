@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Values.mynamespace }}
   labels:
     {{- include "hello-helm.labels" . | nindent 4 }}
+    drink: {{- .Values.favorite.drink | quote }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
